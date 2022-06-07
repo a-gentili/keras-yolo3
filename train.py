@@ -47,6 +47,10 @@ def _main():
     num_val = int(len(lines)*val_split)
     num_train = len(lines) - num_val
 
+    with open('/content/validation.txt', 'w') as v:
+      for line in lines[num_train:]:
+        v.write(line)
+
     # Train with frozen layers first, to get a stable loss.
     # Adjust num epochs to your dataset. This step is enough to obtain a not bad model.
     if True:
